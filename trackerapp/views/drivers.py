@@ -19,7 +19,7 @@ class DriverSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'name', 'phone_number',
-                  'isLocal', 'notes', 'area_id', 'area')
+                  'isLocal', 'notes')
         depth = 2
 
 
@@ -38,7 +38,6 @@ class Drivers(ViewSet):
         newdriver.phone_number = request.data["phone_number"]
         newdriver.isLocal = request.data["isLocal"]
         newdriver.notes = request.data["notes"]
-        newdriver.area_id = request.data["area_id"]
 
         newdriver.save()
 
@@ -62,7 +61,6 @@ class Drivers(ViewSet):
         ogDriver.phone_number = request.data['phone_number']
         ogDriver.isLocal = request.data['isLocal']
         ogDriver.notes = request.data['notes']
-        ogDriver.area_id = request.data['area_id']
 
         ogDriver.save()
         return Response({}, status=status.HTTP_204_NO_CONTENT)
