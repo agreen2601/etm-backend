@@ -1,3 +1,4 @@
+# Master set for local, main set for heroku
 """
 Django settings for eventtranspotracker project.
 
