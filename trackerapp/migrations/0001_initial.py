@@ -135,4 +135,15 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'assignments',
             },
         ),
+        migrations.CreateModel(
+            name='Event',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=50)),
+            ],
+            options={
+                'verbose_name': 'event',
+                'verbose_name_plural': 'events',
+            },
+        ),
     ]
