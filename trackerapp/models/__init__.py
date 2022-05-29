@@ -8,4 +8,3 @@ from .vehicle import Vehicle
 from .date import Date
 from .assignment import Assignment
 from .event import Event
-from .area import Area
