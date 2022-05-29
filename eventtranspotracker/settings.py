@@ -1,3 +1,4 @@
+# Master set for local, main set for heroku
 """
 Django settings for eventtranspotracker project.
 
@@ -39,11 +40,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
-# SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
-# SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # Application definition
 
