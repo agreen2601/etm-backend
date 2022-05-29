@@ -11,5 +11,4 @@ from .dates import Dates
 from .drivers import Drivers
 from .shuttledates import ShuttleDates
 from .vehicles import Vehicles
-from .areas import Areas
 from .events import Events

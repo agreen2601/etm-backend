@@ -18,7 +18,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             view_name='event',
             lookup_field='id'
         )
-        fields = ('id', 'name', 'area_id')
+        fields = ('id', 'name')
 
 
 class Events(ViewSet):
@@ -33,7 +33,6 @@ class Events(ViewSet):
 
         newevent = Event()
         newevent.name = request.data["name"]
-        newevent.area_id = request.data["area_id"]
 
         newevent.save()
 
@@ -54,7 +53,6 @@ class Events(ViewSet):
 
         ogevent = event.objects.get(pk=pk)
         ogevent.name = request.data['name']
-        ogevent.area_id = request.data['area_id']
 
         ogevent.save()
         return Response({}, status=status.HTTP_204_NO_CONTENT)

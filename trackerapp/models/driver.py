@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from .area import Area
 
 class Driver(models.Model):
 
@@ -8,7 +7,6 @@ class Driver(models.Model):
     phone_number = models.CharField(max_length=50)
     isLocal = models.BooleanField(default=False)
     notes = models.CharField(max_length=250)
-    area = models.ForeignKey(Area, on_delete=models.DO_NOTHING)
 
     class Meta:
         verbose_name = ("driver")

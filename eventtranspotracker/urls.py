@@ -35,7 +35,6 @@ router.register(r'drivers', Drivers, 'driver')
 router.register(r'vehicles', Vehicles, 'vehicle')
 router.register(r'dates', Dates, 'date')
 router.register(r'users', Users, 'user')
-router.register(r'areas', Areas, 'area')
 router.register(r'events', Events, 'event')
 
 urlpatterns = [
