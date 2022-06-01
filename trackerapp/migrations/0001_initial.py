@@ -127,7 +127,6 @@ class Migration(migrations.Migration):
                 ('end_time', models.TimeField()),
                 ('date', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='trackerapp.Date')),
                 ('driver', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='trackerapp.Driver')),
-                ('shuttle', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='trackerapp.Shuttle')),
                 ('route', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='trackerapp.Route')),
                 ('vehicle', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='trackerapp.Vehicle')),
             ],

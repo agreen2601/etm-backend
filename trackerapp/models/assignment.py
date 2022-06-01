@@ -3,6 +3,7 @@ from django.urls import reverse
 from .driver import Driver
 from .vehicle import Vehicle
 from .route import Route
+from .shuttle import Shuttle
 from .date import Date
 from django.contrib.auth.models import User
 
@@ -14,6 +15,7 @@ class Assignment(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.DO_NOTHING)
     vehicle = models.ForeignKey(Vehicle, on_delete=models.DO_NOTHING)
     route = models.ForeignKey(Route, on_delete=models.DO_NOTHING)
+    shuttle = models.ForeignKey(Shuttle, on_delete=models.DO_NOTHING)
     date = models.ForeignKey(Date, on_delete=models.DO_NOTHING)
 
     class Meta:
@@ -21,7 +23,7 @@ class Assignment(models.Model):
         verbose_name_plural = ("assignments")
 
     def __str__(self):
-        return f'{self.driver} {self.vehicle} {self.route} {self.date}'
+        return f'{self.driver} {self.vehicle} {self.route} {self.shuttle} {self.date}'
 
     def get_absolute_url(self):
         return reverse("assignment_detail", kwargs={"pk": self.pk})

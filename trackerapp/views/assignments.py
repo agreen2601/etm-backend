@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from django.db import models
-from trackerapp.models import Assignment, Driver, Vehicle, Route, Date
+from trackerapp.models import Assignment, Driver, Vehicle, Route, Date, Shuttle
 import json
 
 
@@ -21,7 +21,7 @@ class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'date_id', 'start_time', 'end_time', 'driver_id', 'vehicle_id',
-                  'route_id', 'date', 'driver', 'vehicle', 'route', 'date')
+                  'route_id', 'shuttle_id', 'date', 'driver', 'vehicle', 'route', 'shuttle')
         depth = 1
 
 
@@ -42,6 +42,7 @@ class Assignments(ViewSet):
         newassignment.driver_id = request.data["driver_id"]
         newassignment.vehicle_id = request.data["vehicle_id"]
         newassignment.route_id = request.data["route_id"]
+        newassignment.shuttle_id = request.data["shuttle_id"]
         newassignment.save()
 
         serializer = AssignmentSerializer(
@@ -62,6 +63,11 @@ class Assignments(ViewSet):
         route_id = self.request.query_params.get('routeID', None)
         if route_id is not None:
             assignments = assignments.filter(route_id=route_id)
+
+        # handles fetching list of all assignments from a certain shuttle
+        shuttle_id = self.request.query_params.get('shuttleID', None)
+        if shuttle_id is not None:
+            assignments = assignments.filter(shuttle_id=shuttle_id)
 
         # handles fetching list of all assignments from a certain driver
         driver_id = self.request.query_params.get('driverID', None)
@@ -91,6 +97,7 @@ class Assignments(ViewSet):
         ogAssignment.driver_id = request.data["driver_id"]
         ogAssignment.vehicle_id = request.data["vehicle_id"]
         ogAssignment.route_id = request.data["route_id"]
+        ogAssignment.shuttle_id = request.data["shuttle_id"]
 
         ogAssignment.save()
         return Response({}, status=status.HTTP_204_NO_CONTENT)
