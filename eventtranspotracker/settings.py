@@ -177,3 +177,4 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
