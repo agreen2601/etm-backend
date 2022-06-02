@@ -38,13 +38,13 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
 
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -164,12 +164,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'staticfiles')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 
 django_heroku.settings(locals())
 
